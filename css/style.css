@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 3rem;
+}
+
+.container {
+    margin: 5rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+main {
+    margin: 1.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.choose-row,
+.btn-even,
+.btns-for-play,
+.btn-odd {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px
+}
+
+.choosed-number {
+    display: flex;
+    justify-content: space-around;
+}
+
+.d-none {
+    display: none;
+}
+
+.color {
+    background-color: red;
+}

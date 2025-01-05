@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image" href="./df426316fc7ff65e7e6e0aa7c116bc7b.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pari o Dispari</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Benvenuti al banco</h1>
+        </header>
+        <main>
+            <section class="total" style="text-align: center;">Risultato</section>
+            <section class="choosed-number">
+                <div>
+                    <div id="number-even-text">Numero</div>
+                    <div class="choosed-number-even"></div>
+                </div>
+                <div>
+                    <div id="number-odd-text">Numero</div>
+                    <div class="choosed-number-odd"></div>
+                </div>
+            </section>
+            <section class="choose-row">
+                <div id="arrow-dow-left">left</div>
+                <div id="choose-group">Scegli la tua squadra</div>
+                <div id="arro-dow-right">right</div>
+            </section>
+            <section class="btn-choose">
+                <div class="btns-for-play">
+                    <div class="btn-even">
+                        <button type="button" id="even">Pari</button>
+                        <button class="d-none" id="btn-even-pc" disable>Computer</button>
+                        <div class="even-btns d-none">
+                            <button type="button" id="0">0</button>
+                            <button type="button" id="2">2</button>
+                            <button type="button" id="4">4</button>
+                        </div>
+                    </div>
+                    <button type="button" id="play">Gioca</button>
+                    <div class="btn-odd">
+                        <button type="button" id="odd">Dispari</button>
+                        <button class="d-none" id="btn-odd-pc" disable>Computer</button>
+                        <div class="odd-btns d-none">
+                            <button type="button" id="1">1</button>
+                            <button type="button" id="3">3</button>
+                            <button type="button" id="5">5</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
