@@ -17,7 +17,10 @@ const btnPlay = document.getElementById('play');
 const btnOddPc = document.getElementById('btn-odd-pc');
 const btnEvenPc = document.getElementById('btn-even-pc');
 const numberEvenText = document.getElementById('number-even-text');
-const numberOddText = document.getElementById('number-odd-text')
+const numberOddText = document.getElementById('number-odd-text');
+const chooseGroup = document.getElementById('choose-group');
+const arrowLeft = document.getElementById('arrow-down-left');
+const arrowRight = document.getElementById('arrow-down-right')
 // console.log(numberEvenText, numberOddText)
 
 // creo una funzione per ricavare i numeri pari
@@ -66,7 +69,7 @@ function sumNumbers() {
 
 //genero un numero random da inserire in bacheca
 function printRandomNumber(element) {
-    element.innerHTML = parseInt(Math.random() * 5)
+    element.innerHTML = parseInt(Math.random() * 5 + 1)
 }
 
 
@@ -76,18 +79,23 @@ btnEven.addEventListener('click', () => {
     btnOddPc.classList.remove('d-none')
     numberEvenText.innerHTML = 'Il tuo numero'
     numberOddText.innerHTML = 'Numero Computer'
+    chooseGroup.innerHTML = 'Hai scelto pari'
+    arrowRight.classList.add('ghost')
     btnNumZero.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 0
+        numberChoosedEven.classList.add('print-number')
         printRandomNumber(numberChoosedOdd)
     })
 
     btnNumTwo.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 2
+        numberChoosedEven.classList.add('print-number')
         printRandomNumber(numberChoosedOdd)
     })
 
     btnNumFour.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 4
+        numberChoosedEven.classList.add('print-number')
         printRandomNumber(numberChoosedOdd)
     })
 })
@@ -98,24 +106,31 @@ btnOdd.addEventListener('click', () => {
     btnEvenPc.classList.remove('d-none')
     numberOddText.innerHTML = 'Il tuo numero'
     numberEvenText.innerHTML = 'Numero Computer'
+    chooseGroup.innerHTML = 'Hai scelto dispari'
+    arrowLeft.classList.add('ghost')
     btnNumOne.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 1
+        numberChoosedOdd.classList.add('print-number')
         printRandomNumber(numberChoosedEven)
     })
 
     btnNumThree.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 3
+        numberChoosedOdd.classList.add('print-number')
         printRandomNumber(numberChoosedEven)
     })
 
     btnNumFive.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 5
+        numberChoosedOdd.classList.add('print-number')
         printRandomNumber(numberChoosedEven)
     })
 })
 
+//TODO:fare controllo NaN  & implementare vitt o sconf
 btnPlay.addEventListener('click', () => {
     totalNumber.innerHTML = sumNumbers()
+    totalNumber.classList.add('result')
     if (sumNumbers() % 2 === 0) {
         console.log('pari')
     } else console.log('dispari')
