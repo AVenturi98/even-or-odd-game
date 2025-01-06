@@ -1,3 +1,5 @@
+const container = document.querySelector('.container');
+const overlayText = document.querySelector('.overlay-text');
 const btnEvenContain = document.querySelector('.btn-even');
 const btnOddContain = document.querySelector('.btn-odd');
 const btnEven = document.getElementById('even');
@@ -6,7 +8,8 @@ const numberChoosedEven = document.querySelector('.choosed-number-even');
 const numberChoosedOdd = document.querySelector('.choosed-number-odd');
 const evenBtns = document.querySelector('.even-btns');
 const oddBtns = document.querySelector('.odd-btns');
-const totalNumber = document.querySelector('.total');
+const totalNumber = document.querySelector('.result');
+const totalContain = document.getElementById('result-contain')
 const btnPlay = document.getElementById('play');
 const btnOddPc = document.getElementById('btn-odd-pc');
 const btnEvenPc = document.getElementById('btn-even-pc');
@@ -15,14 +18,14 @@ const numberOddText = document.getElementById('number-odd-text');
 const chooseGroup = document.getElementById('choose-group');
 const arrowLeft = document.getElementById('arrow-down-left');
 const arrowRight = document.getElementById('arrow-down-right')
-// console.log(numberEvenText, numberOddText)
+// console.log(container)
 
 // (#1) creo una funzione per ricavare i numeri pari, facendo scoparire il tasto di selezione
 function evenChooseNum(e, btn) {
     for (let i = 0; i < 6; i++) {
         if (i % 2 === 0) {
-            btn.classList.add('d-none')
-            e.classList.remove('d-none')
+            btn.classList.add('d-none');
+            e.classList.remove('d-none');
             e.innerHTML += `<button type="button" id=${i}>${i}</button>`
         }
     }
@@ -32,8 +35,8 @@ function evenChooseNum(e, btn) {
 function oddChooseNum(e, btn) {
     for (let i = 0; i < 6; i++) {
         if (i % 2 === 1) {
-            btn.classList.add('d-none')
-            e.classList.remove('d-none')
+            btn.classList.add('d-none');
+            e.classList.remove('d-none');
             e.innerHTML += `<button type="button" id=${i}>${i}</button>`
         }
     }
@@ -71,7 +74,7 @@ function printRandomNumber(num, element) {
 }
 
 btnEven.addEventListener('click', () => {
-    evenBtns.classList.remove('d-none')
+    evenBtns.classList.remove('d-none');
     evenChooseNum(evenBtns, btnEven) //#1
     changeSecondaryElements(btnOdd, btnOddPc, numberEvenText, numberOddText, arrowRight, chooseGroup) //(#3)
     chooseGroup.innerHTML = 'Hai scelto pari'
@@ -85,7 +88,7 @@ btnEven.addEventListener('click', () => {
     })
 
     btnNumTwo.addEventListener('click', () => {
-        numberChoosedEven.innerHTML = 2
+        const number2 = numberChoosedEven.innerHTML = 2
         printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
     })
 
@@ -121,8 +124,16 @@ btnOdd.addEventListener('click', () => {
 //TODO:fare controllo NaN  & implementare vitt o sconf
 btnPlay.addEventListener('click', () => {
     totalNumber.innerHTML = sumNumbers()//(#5)
-    totalNumber.classList.add('result')
+    totalNumber.classList.add('result-tranx');
+    totalContain.classList.add('contain-tot');
+    totalContain.classList.add('result-tranx');
+    setTimeout(() => {
+        container.classList.add('overlay-style');
+        overlayText.classList.remove('d-none');
+        overlayText.classList.add('casper')
+    }, 500);
     if (sumNumbers() % 2 === 0) {
         console.log('pari')
     } else console.log('dispari')
+    overlayText.innerHTML = 'è uscito: ' + `<br>` + `<div style="text-align: center">${(sumNumbers() % 2 === 0 ? 'Pari' : 'Dispari')}</div>`
 })
