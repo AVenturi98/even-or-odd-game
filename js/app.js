@@ -73,11 +73,19 @@ function printRandomNumber(num, element) {
     element.innerHTML = parseInt(Math.random() * 5 + 1)
 }
 
+// (#7) fa comparire il bottono per giocare
+function casperPlay() {
+    btnPlay.classList.remove('opacity')
+    btnPlay.classList.add('casper')
+}
+
+const myArray = []
 btnEven.addEventListener('click', () => {
     evenBtns.classList.remove('d-none');
     evenChooseNum(evenBtns, btnEven) //#1
     changeSecondaryElements(btnOdd, btnOddPc, numberEvenText, numberOddText, arrowRight, chooseGroup) //(#3)
     chooseGroup.innerHTML = 'Hai scelto pari'
+    myArray.push('pari')
 
     const btnNumZero = document.getElementById('0');
     const btnNumTwo = document.getElementById('2');
@@ -85,39 +93,48 @@ btnEven.addEventListener('click', () => {
     btnNumZero.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 0
         printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
+        casperPlay()
     })
 
     btnNumTwo.addEventListener('click', () => {
-        const number2 = numberChoosedEven.innerHTML = 2
+        numberChoosedEven.innerHTML = 2
         printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
+        casperPlay()
     })
 
     btnNumFour.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 4
         printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
+        casperPlay()
     })
 })
+
 
 btnOdd.addEventListener('click', () => {
     oddChooseNum(oddBtns, btnOdd) //(#2)
     changeSecondaryElements(btnEven, btnEvenPc, numberOddText, numberEvenText, arrowLeft, chooseGroup) //(#3)
     chooseGroup.innerHTML = 'Hai scelto dispari'
+    myArray.push('dispari')
+
     const btnNumOne = document.getElementById('1');
     const btnNumThree = document.getElementById('3');
     const btnNumFive = document.getElementById('5');
     btnNumOne.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 1
         printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
+        casperPlay()
     })
 
     btnNumThree.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 3
         printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
+        casperPlay()
     })
 
     btnNumFive.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 5
         printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
+        casperPlay()
     })
 })
 
@@ -131,9 +148,22 @@ btnPlay.addEventListener('click', () => {
         container.classList.add('overlay-style');
         overlayText.classList.remove('d-none');
         overlayText.classList.add('casper')
-    }, 500);
-    if (sumNumbers() % 2 === 0) {
-        console.log('pari')
-    } else console.log('dispari')
-    overlayText.innerHTML = 'è uscito: ' + `<br>` + `<div style="text-align: center">${(sumNumbers() % 2 === 0 ? 'Pari' : 'Dispari')}</div>`
+    }, 2100);
+
+    let message = `<p style="color: rgb(248, 101, 16)">Hai perso</p>`
+    if (sumNumbers() % 2 !== 0 && myArray.at() === 'dispari') {
+        message = `<p style="color: yellow">Hai vinto</p>`
+    } else if (sumNumbers() % 2 === 0 && myArray.at() === 'pari') {
+        message = `<p style="color: yellow">Hai vinto</p>`
+    }
+
+
+    if (isNaN(sumNumbers())) {
+        overlayText.innerHTML = `<div style="text-align: center; color: red; font-size: 30px">Atenzione devi selezionare un numero per poter giocare!</div>`
+    } else {
+        overlayText.innerHTML =
+            `<div style="text-align: center">${(sumNumbers() % 2 === 0 ? 'Pari' : 'Dispari')}</div>` +
+            `<div style="text-align: center; font-size: 30px">${message}</div>`
+    }
+
 })

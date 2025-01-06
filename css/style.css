@@ -23,31 +23,6 @@ body {
     position: relative;
 }
 
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    z-index: 2;
-}
-
-.overlay-style {
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1;
-    transition: 1000ms;
-
-    [type='button'] {
-        background: rgba(0, 0, 0, 0);
-        cursor: auto;
-    }
-
-    [class$='num-contain'],
-    [id='result-contain'] {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-}
-
 button {
     box-shadow: black 0 2px 8px;
     border: none;
@@ -72,6 +47,31 @@ main {
     padding: 1rem;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+}
+
+.overlay-style {
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    transition: 1000ms;
+
+    [type='button'] {
+        background: rgba(0, 0, 0, 0);
+        cursor: auto;
+    }
+
+    [class$='num-contain'],
+    [id='result-contain'] {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }
 
 .total {
@@ -147,6 +147,10 @@ main {
 
 .color {
     background-color: red;
+}
+
+.opacity {
+    opacity: 0;
 }
 
 .ghost {
