@@ -6,12 +6,6 @@ const numberChoosedEven = document.querySelector('.choosed-number-even');
 const numberChoosedOdd = document.querySelector('.choosed-number-odd');
 const evenBtns = document.querySelector('.even-btns');
 const oddBtns = document.querySelector('.odd-btns');
-const btnNumZero = document.getElementById('0');
-const btnNumOne = document.getElementById('1');
-const btnNumTwo = document.getElementById('2');
-const btnNumThree = document.getElementById('3');
-const btnNumFour = document.getElementById('4');
-const btnNumFive = document.getElementById('5');
 const totalNumber = document.querySelector('.total');
 const btnPlay = document.getElementById('play');
 const btnOddPc = document.getElementById('btn-odd-pc');
@@ -23,116 +17,108 @@ const arrowLeft = document.getElementById('arrow-down-left');
 const arrowRight = document.getElementById('arrow-down-right')
 // console.log(numberEvenText, numberOddText)
 
-// creo una funzione per ricavare i numeri pari
-function evenChooseNum(e) {
+// (#1) creo una funzione per ricavare i numeri pari, facendo scoparire il tasto di selezione
+function evenChooseNum(e, btn) {
     for (let i = 0; i < 6; i++) {
         if (i % 2 === 0) {
+            btn.classList.add('d-none')
+            e.classList.remove('d-none')
             e.innerHTML += `<button type="button" id=${i}>${i}</button>`
         }
     }
 }
 
-// creo una funzione per ricavare i numeri dispari
-function oddChooseNum(e) {
+// (#2) creo una funzione per ricavare i numeri dispari, facendo scoparire il tasto di selezione
+function oddChooseNum(e, btn) {
     for (let i = 0; i < 6; i++) {
         if (i % 2 === 1) {
+            btn.classList.add('d-none')
+            e.classList.remove('d-none')
             e.innerHTML += `<button type="button" id=${i}>${i}</button>`
         }
     }
 }
 
-//creo una funzione per cambiare colore ai numeri cliccandoci sopra
-function changeColorNumber(num) {
-    num.addEventListener('click', () => {
-        num.classList.toggle('color')
-    })
-}
-
-//funzione per far scoparire dei tasti e apparirne altri
-function changeForChange(btn, btns) {
+// (#3) creo una funzione per far scomparire l'elemento di selezione e la freccia dell'elemento non selezionato, facendo comparire un nuovo elemento alla sezione non scelta e delle scritte personalizzate
+function changeSecondaryElements(btn, btnPc, numTextSelected, numberTextNotSelected, arrow) {
     btn.classList.add('d-none')
-    btns.classList.remove('d-none')
+    btnPc.innerHTML = `<button type="button" disable>Computer</button>`
+    numTextSelected.innerHTML = 'Il tuo numero'
+    numberTextNotSelected.innerHTML = 'Numero Computer'
+    arrow.classList.add('ghost');
 }
 
-//ottengo la somma dei numeri una volta selezionati
+// (#4) ottengo la somma dei numeri una volta selezionati
 function getNumber(element) {
     return parseInt(element.innerHTML, 10)
 }
 
-//funzione per ottenere la somma di due fattori 
+// (#5) funzione per ottenere la somma di due fattori 
 function sumNumbers() {
-    const evenNumber = getNumber(numberChoosedEven)
-    const oddNumber = getNumber(numberChoosedOdd)
+    const evenNumber = getNumber(numberChoosedEven) //(#4)
+    const oddNumber = getNumber(numberChoosedOdd) //(#4)
     const total = evenNumber + oddNumber
     return total
 }
 
-//genero un numero random da inserire in bacheca
-function printRandomNumber(element) {
+// (#6) genero un numero random da inserire in bacheca aggiungendo una classe di stile al numero selezionato
+function printRandomNumber(num, element) {
+    num.classList.add('print-number')
     element.innerHTML = parseInt(Math.random() * 5 + 1)
 }
 
-
 btnEven.addEventListener('click', () => {
-    changeForChange(btnEven, evenBtns)
-    btnOdd.classList.add('d-none')
-    btnOddPc.classList.remove('d-none')
-    numberEvenText.innerHTML = 'Il tuo numero'
-    numberOddText.innerHTML = 'Numero Computer'
+    evenBtns.classList.remove('d-none')
+    evenChooseNum(evenBtns, btnEven) //#1
+    changeSecondaryElements(btnOdd, btnOddPc, numberEvenText, numberOddText, arrowRight) //(#3)
     chooseGroup.innerHTML = 'Hai scelto pari'
-    arrowRight.classList.add('ghost')
+    const btnNumZero = document.getElementById('0');
+    const btnNumTwo = document.getElementById('2');
+    const btnNumFour = document.getElementById('4');
     btnNumZero.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 0
-        numberChoosedEven.classList.add('print-number')
-        printRandomNumber(numberChoosedOdd)
+        printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
     })
 
     btnNumTwo.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 2
-        numberChoosedEven.classList.add('print-number')
-        printRandomNumber(numberChoosedOdd)
+        printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
     })
 
     btnNumFour.addEventListener('click', () => {
         numberChoosedEven.innerHTML = 4
-        numberChoosedEven.classList.add('print-number')
-        printRandomNumber(numberChoosedOdd)
+        printRandomNumber(numberChoosedEven, numberChoosedOdd) //(#6)
     })
 })
 
 btnOdd.addEventListener('click', () => {
-    changeForChange(btnOdd, oddBtns)
-    btnEven.classList.add('d-none')
-    btnEvenPc.classList.remove('d-none')
-    numberOddText.innerHTML = 'Il tuo numero'
-    numberEvenText.innerHTML = 'Numero Computer'
+    oddChooseNum(oddBtns, btnOdd) //(#2)
+    changeSecondaryElements(btnEven, btnEvenPc, numberOddText, numberEvenText, arrowLeft) //(#3)
     chooseGroup.innerHTML = 'Hai scelto dispari'
-    arrowLeft.classList.add('ghost')
+    const btnNumOne = document.getElementById('1');
+    const btnNumThree = document.getElementById('3');
+    const btnNumFive = document.getElementById('5');
     btnNumOne.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 1
-        numberChoosedOdd.classList.add('print-number')
-        printRandomNumber(numberChoosedEven)
+        printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
     })
 
     btnNumThree.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 3
-        numberChoosedOdd.classList.add('print-number')
-        printRandomNumber(numberChoosedEven)
+        printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
     })
 
     btnNumFive.addEventListener('click', () => {
         numberChoosedOdd.innerHTML = 5
-        numberChoosedOdd.classList.add('print-number')
-        printRandomNumber(numberChoosedEven)
+        printRandomNumber(numberChoosedOdd, numberChoosedEven) //(#6)
     })
 })
 
 //TODO:fare controllo NaN  & implementare vitt o sconf
 btnPlay.addEventListener('click', () => {
-    totalNumber.innerHTML = sumNumbers()
+    totalNumber.innerHTML = sumNumbers()//(#5)
     totalNumber.classList.add('result')
     if (sumNumbers() % 2 === 0) {
         console.log('pari')
     } else console.log('dispari')
 })
-

@@ -20,7 +20,6 @@ body {
     background-color: rgba(224, 223, 116, 0.9);
     box-shadow: black 0 10px 20px;
     max-width: 1000px;
-    margin-left: 500px;
 }
 
 button {
@@ -31,6 +30,14 @@ button {
     border-radius: 5px;
     padding: 10px 12px;
     cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(#fffc5a, #91d7ff);
+}
+
+button:active {
+    background: linear-gradient(#fff, #fff);
 }
 
 main {
@@ -54,14 +61,14 @@ main {
     gap: 75px
 }
 
-.choosed-number,
+.choosed-number-text,
 .btn-choose {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.choosed-number>* {
+.choosed-number-text>* {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -83,6 +90,12 @@ main {
 .choose-row,
 .btn-choose {
     height: 60px;
+}
+
+.even-btns,
+.odd-btns {
+    display: flex;
+    gap: 10px
 }
 
 .d-none {

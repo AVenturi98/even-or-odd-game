@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         <header>
-            <h1>Benvenuti al banco</h1>
+            <h1 class="h1">Benvenuti al banco</h1>
         </header>
         <main>
             <section class="total" style="text-align: center;">Risultato</section>
-            <section class="choosed-number">
+            <section class="choosed-number-text">
                 <div>
                     <div id="number-even-text">Numero</div>
                     <div class="num-contain">
@@ -26,8 +26,7 @@
                 <div>
                     <div id="number-odd-text">Numero</div>
                     <div class="num-contain">
-                        <!-- animare l'entrata -->
-                        <div class="choosed-number-odd casper"></div>
+                        <div class="choosed-number-odd"></div>
                     </div>
                 </div>
             </section>
@@ -40,22 +39,14 @@
                 <div class="btns-for-play">
                     <div class="btn-even">
                         <button type="button" id="even">Pari</button>
-                        <button class="d-none" id="btn-even-pc" disable>Computer</button>
-                        <div class="even-btns d-none">
-                            <button type="button" id="0">0</button>
-                            <button type="button" id="2">2</button>
-                            <button type="button" id="4">4</button>
-                        </div>
+                        <div id="btn-even-pc"></div>
+                        <div class="even-btns d-none"></div>
                     </div>
                     <button type="button" id="play">Gioca</button>
                     <div class="btn-odd">
                         <button type="button" id="odd">Dispari</button>
-                        <button class="d-none" id="btn-odd-pc" disable>Computer</button>
-                        <div class="odd-btns d-none">
-                            <button type="button" id="1">1</button>
-                            <button type="button" id="3">3</button>
-                            <button type="button" id="5">5</button>
-                        </div>
+                        <div id="btn-odd-pc"></div>
+                        <div class="odd-btns d-none"></div>
                     </div>
                 </div>
             </section>
