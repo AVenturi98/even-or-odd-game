@@ -40,12 +40,15 @@ function oddChooseNum(e, btn) {
 }
 
 // (#3) creo una funzione per far scomparire l'elemento di selezione e la freccia dell'elemento non selezionato, facendo comparire un nuovo elemento alla sezione non scelta e delle scritte personalizzate
-function changeSecondaryElements(btn, btnPc, numTextSelected, numberTextNotSelected, arrow) {
-    btn.classList.add('d-none')
+function changeSecondaryElements(btn, btnPc, numTextSelected, numTextNotSelected, arrow, group) {
+    btn.classList.add('d-none');
     btnPc.innerHTML = `<button type="button" disable>Computer</button>`
     numTextSelected.innerHTML = 'Il tuo numero'
-    numberTextNotSelected.innerHTML = 'Numero Computer'
-    arrow.classList.add('ghost');
+    numTextSelected.classList.add('casper');
+    numTextNotSelected.innerHTML = 'Numero Computer'
+    numTextNotSelected.classList.add('casper');
+    group.classList.add('casper');
+    arrow.classList.add('ghost')
 }
 
 // (#4) ottengo la somma dei numeri una volta selezionati
@@ -70,8 +73,9 @@ function printRandomNumber(num, element) {
 btnEven.addEventListener('click', () => {
     evenBtns.classList.remove('d-none')
     evenChooseNum(evenBtns, btnEven) //#1
-    changeSecondaryElements(btnOdd, btnOddPc, numberEvenText, numberOddText, arrowRight) //(#3)
+    changeSecondaryElements(btnOdd, btnOddPc, numberEvenText, numberOddText, arrowRight, chooseGroup) //(#3)
     chooseGroup.innerHTML = 'Hai scelto pari'
+
     const btnNumZero = document.getElementById('0');
     const btnNumTwo = document.getElementById('2');
     const btnNumFour = document.getElementById('4');
@@ -93,7 +97,7 @@ btnEven.addEventListener('click', () => {
 
 btnOdd.addEventListener('click', () => {
     oddChooseNum(oddBtns, btnOdd) //(#2)
-    changeSecondaryElements(btnEven, btnEvenPc, numberOddText, numberEvenText, arrowLeft) //(#3)
+    changeSecondaryElements(btnEven, btnEvenPc, numberOddText, numberEvenText, arrowLeft, chooseGroup) //(#3)
     chooseGroup.innerHTML = 'Hai scelto dispari'
     const btnNumOne = document.getElementById('1');
     const btnNumThree = document.getElementById('3');

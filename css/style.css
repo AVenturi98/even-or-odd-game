@@ -111,13 +111,29 @@ main {
     transition: 500ms;
 }
 
+.casper {
+    animation-name: casper;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+}
+
+@keyframes casper {
+    from {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
 .result {
-    animation-name: resultNumberRotante;
+    animation-name: resultNumber;
     animation-duration: 2500ms;
     animation-timing-function: ease-in;
 }
 
-@keyframes resultNumberRotante {
+@keyframes resultNumber {
     from {
         color: rgba(0, 0, 0, 0);
     }
