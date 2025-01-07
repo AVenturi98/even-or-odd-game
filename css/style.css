@@ -58,12 +58,16 @@ main {
     z-index: 2;
 }
 
+#btn-again {
+    background: linear-gradient(#ffe551, #946161)
+}
+
 .overlay-style {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1;
     transition: 1000ms;
 
-    [type='button'] {
+    [type='button']:not(#btn-again) {
         background: rgba(0, 0, 0, 0);
         cursor: auto;
     }
@@ -304,6 +308,7 @@ main {
         line-height: 1rem;
         display: flex;
         align-items: center;
+        gap: 0
     }
 
     h1 {
@@ -331,23 +336,40 @@ main {
         margin: 10px 0 30px 0;
     }
 
+    .text-result,
+    #number-odd-text,
+    #number-even-text {
+        font-size: 20px;
+        padding-bottom: 5px;
+    }
+
     .num-contain,
     #result-contain {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 60px;
+        width: 60px;
+    }
+
+    .choosed-number-even,
+    .choosed-number-odd {
+        font-size: 20px;
     }
 
     .your-number-min {
         display: block;
+        font-size: 20px;
+        margin-top: -10px;
     }
 
     .your-number-max {
-        display: none
+        display: none;
     }
 
     .choosed-number-text {
         height: 90px;
+        padding-bottom: 20px
     }
 
     .num-contain {
@@ -356,49 +378,68 @@ main {
     }
 
     .choose-row {
-        gap: 10px
+        gap: 10px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.2rem;
+        align-self: flex-end;
+    }
+
+    .odd-text-choosed {
+        font-size: 18px;
     }
 
     .btn-choose {
-        height: 200px;
+        height: 500px;
         width: 75vw;
         position: relative
     }
 
+    .btns-for-play {
+        gap: 100px;
+    }
+
     #play {
         position: absolute;
-        bottom: 10px;
+        bottom: 0;
         left: 50%;
         transform: translate(-50%);
+        font-size: 20px;
+    }
+
+    #even,
+    #odd {
+        font-size: 20px;
+    }
+
+    .even-btns,
+    #btn-even-pc,
+    .odd-btns,
+    #btn-odd-pc {
+        position: absolute;
+        top: 0;
     }
 
     .even-btns {
-        position: absolute;
-        top: 0;
         left: 25px;
     }
 
     #btn-odd-pc {
-        position: absolute;
-        top: 0;
         right: 0;
     }
 
     .odd-btns {
-        position: absolute;
-        top: 0;
         right: 25px;
     }
 
     #btn-even-pc {
-        position: absolute;
-        top: 0;
         left: 0;
     }
 
     .overlay-text {
-        line-height: 5rem;
+        line-height: 4rem;
         top: 50%;
+        font-size: 30px;
     }
 
 }

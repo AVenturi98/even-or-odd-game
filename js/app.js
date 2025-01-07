@@ -79,6 +79,11 @@ function casperPlay() {
     btnPlay.classList.add('casper')
 }
 
+// (#8) resetto la pagina corrente
+function again() {
+    location.reload()
+}
+
 const myArray = []
 btnEven.addEventListener('click', () => {
     evenBtns.classList.remove('d-none');
@@ -113,7 +118,7 @@ btnEven.addEventListener('click', () => {
 btnOdd.addEventListener('click', () => {
     oddChooseNum(oddBtns, btnOdd) //(#2)
     changeSecondaryElements(btnEven, btnEvenPc, numberOddText, numberEvenText, arrowLeft, chooseGroup) //(#3)
-    chooseGroup.innerHTML = 'Hai scelto dispari'
+    chooseGroup.innerHTML = `<div class="odd-text-choosed">Hai scelto dispari</div>`
     myArray.push('dispari')
 
     const btnNumOne = document.getElementById('1');
@@ -163,7 +168,8 @@ btnPlay.addEventListener('click', () => {
     } else {
         overlayText.innerHTML =
             `<div style="text-align: center">${(sumNumbers() % 2 === 0 ? 'Pari' : 'Dispari')}</div>` +
-            `<div style="text-align: center; font-size: 30px">${message}</div>`
+            `<div style="text-align: center; font-size: 50px">${message}</div>
+            <button type="button" id="btn-again" onclick="again()" style=" font-size: 25px">Gioca ancora</button>`
     }
 
 })
