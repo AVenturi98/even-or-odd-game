@@ -46,9 +46,9 @@ function oddChooseNum(e, btn) {
 function changeSecondaryElements(btn, btnPc, numTextSelected, numTextNotSelected, arrow, group) {
     btn.classList.add('d-none');
     btnPc.innerHTML = `<button type="button" disable>Computer</button>`
-    numTextSelected.innerHTML = 'Il tuo numero'
+    numTextSelected.innerHTML = `<p class="your-number-max">Il tuo numero</p><span class="your-number-min d-none">Numero</span>`
     numTextSelected.classList.add('casper');
-    numTextNotSelected.innerHTML = 'Numero Computer'
+    numTextNotSelected.innerHTML = `<p class="your-number-max">Numero Computer</p><span class="your-number-min d-none">Computer</span>`
     numTextNotSelected.classList.add('casper');
     group.classList.add('casper');
     arrow.classList.add('ghost')

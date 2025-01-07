@@ -207,3 +207,198 @@ main {
         color: rgba(0, 0, 0, 1)
     }
 }
+
+@media(min-width: 1024px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 100vw;
+    }
+}
+
+@media(width <=768px) {
+
+    #number-even-text,
+    #number-odd-text,
+    .choose-row {
+        font-size: 15px
+    }
+
+    .btns-for-play,
+    .choose-row {
+        gap: 20px
+    }
+
+    .even-btns {
+        margin-left: -29px
+    }
+
+    .odd-btns {
+        margin-right: -29px
+    }
+}
+
+@media (min-width: 550px) {
+    body {
+        line-height: 2rem;
+    }
+
+    main {
+        margin: 1px
+    }
+
+    .container {
+        margin: 4rem
+    }
+
+    .total {
+        min-height: 80px;
+    }
+
+    .btns-for-play {
+        gap: 40px
+    }
+
+    .choose-row {
+        gap: 20px;
+    }
+
+    .num-contain,
+    #result-contain {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #choose-group {
+        text-align: center;
+    }
+
+    .even-btns {
+        gap: 10px
+    }
+
+    .odd-btns {
+        gap: 10px;
+    }
+}
+
+@media(width < 549px) {
+    .container {
+        margin: 2rem
+    }
+}
+
+@media(max-width: 492px) {
+    .container {
+        margin: 1rem
+    }
+}
+
+@media(width < 489px) {
+    body {
+        line-height: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        line-height: 1.8rem;
+        margin: 0
+    }
+
+    main {
+        margin: 5px;
+        padding: 10px;
+        height: 70vh;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 50px
+    }
+
+    .container {
+        margin: 1rem;
+        height: 90vh;
+    }
+
+    .text-result {
+        margin: 10px 0 30px 0;
+    }
+
+    .num-contain,
+    #result-contain {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .your-number-min {
+        display: block;
+    }
+
+    .your-number-max {
+        display: none
+    }
+
+    .choosed-number-text {
+        height: 90px;
+    }
+
+    .num-contain {
+        margin-top: 10px;
+        margin: 0 30px 0 30px
+    }
+
+    .choose-row {
+        gap: 10px
+    }
+
+    .btn-choose {
+        height: 200px;
+        width: 75vw;
+        position: relative
+    }
+
+    #play {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .even-btns {
+        position: absolute;
+        top: 0;
+        left: 25px;
+    }
+
+    #btn-odd-pc {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .odd-btns {
+        position: absolute;
+        top: 0;
+        right: 25px;
+    }
+
+    #btn-even-pc {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .overlay-text {
+        line-height: 5rem;
+        top: 50%;
+    }
+
+}
